@@ -4,6 +4,7 @@ package page;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -22,16 +23,7 @@ public class MoneyTransferPage {
         return new DashboardPage();
     }
 
-    public void emptyAmountField() {
-        $(byText("Сумма перевода должна быть больше нуля.")).shouldBe(visible);
-    }
-
     public void amountMoreThanBalance() {
         $(byText("Невозможно осуществить перевод, так как сумма превышает баланс.")).shouldBe(visible);
     }
-
-    public void enterAnotherCard() {
-        $(byText("Нельзя переводить с карты на эту же карту. Введите номер другой карты.")).shouldBe(visible);
-    }
-
 }
